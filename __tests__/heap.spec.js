@@ -61,10 +61,20 @@ describe("left, right, parent simple tests", () => {
   });
   it("10 build heap random tests", () => {
     for(let i = 0; i < 10; i++) {
-      let n = randomNumber(2,1000),
+      let n = randomNumber(1,1000),
           arr = (new Array(n)).fill(1).map(x => randomNumber(-1000,1000)),
           nHeap = new Heap(arr);
       checkMaxHeap(nHeap, expect);
     }
   });
+  it("heapsort 10 random tests", () => {
+    for(let i = 0; i < 10; i++) {
+      let n = randomNumber(1,10000),
+          arr = (new Array(n)).fill(1).map(x => randomNumber(-1000,1000)),
+          nHeap = new Heap(arr);
+      nHeap.heapSort();
+      arr.sort((a,b) => a - b);
+      expect(nHeap.heap).toEqual(arr);
+    }
+  })
 })
