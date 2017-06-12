@@ -22,9 +22,14 @@ class PQueue extends Heap{
     while(i > 0 && this.byIndex(this.parent(i)) < this.heap[i]) {
       let c = this.heap[i];
       this.heap[i] = this.byIndex(this.parent(i));
-      this.heap[this.parent[i]] = c;
+      this.heap[this.parent(i)] = c;
       i = this.parent(i);
     }
+  }
+  insertKey(key) {
+    this.hlength++;
+    this.heap[this.hlength-1] = 0;
+    this.increaseBy(this.hlength-1, key);
   }
 }
 

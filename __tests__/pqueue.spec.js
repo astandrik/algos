@@ -27,6 +27,18 @@ describe("priority queue tests", () => {
       expect(pqueue.length).toEqual(arr.length-2);
     }
   });
+  it("extract sort", () => {
+    for(let i = 0; i < 10; i++) {
+      let arr = randomArray(randomNumber(2,100)),
+          pqueue = new PQueue(arr);
+      arr.sort((a,b) => b-a);
+      let heapSorted = [];
+      while (pqueue.length > 0) {
+        heapSorted.push(pqueue.extractMax());
+      }
+      expect(heapSorted).toEqual(arr);      
+    }
+  });
   it("increase keys test", () => {
     let arr = randomArray(99);
     let arr2 = randomArray(120);
@@ -40,5 +52,30 @@ describe("priority queue tests", () => {
       checkMaxHeap(q1, expect);
       checkMaxHeap(q2, expect);
     }
-  })
+  });
+  it("insertion test", () => {
+    for(let i = 0; i < 10; i++) {
+      let arr = randomArray(randomNumber(0,200)),
+          pqueue = new PQueue(arr),
+          inserts = randomNumber(1, 100);
+      for(let j = 0; j < inserts; j++) {
+        pqueue.insertKey(randomNumber(-500,500));
+      }
+      checkMaxHeap(pqueue, expect);
+    }
+  });
+  it("create heap by inserts", () => {
+    for(let j = 0; j < 10; j++) {
+      let pqueue = new PQueue([]),
+          arr = [];
+      for(let i = 0; i < randomNumber(2,300); i++) {
+        let n = randomNumber(-1000,1000);
+        pqueue.insertKey(n);
+        arr.push(n);
+      }
+      arr.sort((a,b) => a-b);
+      pqueue.heapSort();
+      expect(pqueue.heap).toEqual(arr);
+    }
+  });
 })

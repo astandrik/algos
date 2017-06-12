@@ -5,6 +5,7 @@ class Heap {
       this.hlength = arr.length;
       this.buildHeap();
     } else {
+      this.hlength = 0;
       this.heap = [];
     }
   }
