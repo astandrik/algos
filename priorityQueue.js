@@ -17,6 +17,15 @@ class PQueue extends Heap{
       return undefined;
     }
   }
+  increaseBy(i, by) {
+    this.heap[i] += by;
+    while(i > 0 && this.byIndex(this.parent(i)) < this.heap[i]) {
+      let c = this.heap[i];
+      this.heap[i] = this.byIndex(this.parent(i));
+      this.heap[this.parent[i]] = c;
+      i = this.parent(i);
+    }
+  }
 }
 
 module.exports = PQueue;

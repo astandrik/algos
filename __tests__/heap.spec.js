@@ -1,19 +1,9 @@
 let Heap = require('../heap');
 jasmine.getEnv().addReporter(new jasmine.ConsoleReporter(console.log));
-function checkMaxHeap(heap, ex) {
-  for(let i = 1; i < heap.length; i++) {
-    if(heap.left(i) < heap.length && heap.byIndex(i) !==  heap.byIndex(heap.left(i)))
-      ex(heap.byIndex(i)).toBeGreaterThan(heap.byIndex(heap.left(i)));
-    if(heap.right(i) < heap.length && heap.byIndex(i) !==  heap.byIndex(heap.right(i)))
-      ex(heap.byIndex(i)).toBeGreaterThan(heap.byIndex(heap.right(i)));
-    if(heap.parent(i) >= 0 && heap.byIndex(i) !==  heap.byIndex(heap.parent(i)))
-      ex(heap.byIndex(i)).toBeLessThan(heap.byIndex(heap.parent(i)));
-  }
-}
-
-function randomNumber(min, max) {
-  return Math.floor(Math.random() *(max-min +1)) + min;
-}
+let helpers = require('./helpers');
+let randomArray = helpers.randomArray;
+let randomNumber = helpers.randomNumber;
+let checkMaxHeap = helpers.checkMaxHeap;
 
 describe("left, right, parent simple tests", () => {
   let test = [16,14,10,8,7,9,3,2,4,1];
