@@ -41,5 +41,13 @@ describe("left, right, parent simple tests", () => {
   });
   it("check max-heap property", () => {
     checkMaxHeap(heap, expect);
+  });
+  it("max-heapify test", () => {
+    let arr = [16,4,10,14,7,9,3,2,8,1];
+    let expectedArr = [16,14,10,8,7,9,3,2,4,1];
+    nHeap = new Heap(arr);
+    nHeap.maxHeapify(1);
+    expect(nHeap.heap).toEqual(expectedArr);
+    checkMaxHeap(nHeap, expect);
   })
 })
