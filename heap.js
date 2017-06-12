@@ -2,8 +2,17 @@ class Heap {
   constructor(arr) {
     if(arr !== undefined && arr instanceof Array) {
       this.heap = arr;
+      this.buildHeap();
     } else {
       this.heap = [];
+    }
+  }
+  buildHeap() {
+    if(this.heap.length > 1) {
+      let start = Math.floor(this.heap.length/2) - 1;
+      for(let i = start; i >= 0; i--) {
+        this.maxHeapify(i);
+      }
     }
   }
   left(i) {

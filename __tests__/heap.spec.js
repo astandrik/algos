@@ -11,6 +11,10 @@ function checkMaxHeap(heap, ex) {
   }
 }
 
+function randomNumber(min, max) {
+  return Math.floor(Math.random() *(max-min +1)) + min;
+}
+
 describe("left, right, parent simple tests", () => {
   let test = [16,14,10,8,7,9,3,2,4,1];
   let heap = new Heap(test);
@@ -49,5 +53,18 @@ describe("left, right, parent simple tests", () => {
     nHeap.maxHeapify(1);
     expect(nHeap.heap).toEqual(expectedArr);
     checkMaxHeap(nHeap, expect);
-  })
+  });
+  it("build heap test", () => {
+    let arr = [3,4,5,2,4,3,8,7,6,5,3,1,2,3,5,7,8,9,65756];
+    let nHeap = new Heap(arr);
+    checkMaxHeap(nHeap, expect);
+  });
+  it("10 build heap random tests", () => {
+    for(let i = 0; i < 10; i++) {
+      let n = randomNumber(2,1000),
+          arr = (new Array(n)).fill(1).map(x => randomNumber(-1000,1000)),
+          nHeap = new Heap(arr);
+      checkMaxHeap(nHeap, expect);
+    }
+  });
 })
