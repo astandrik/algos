@@ -1,0 +1,16 @@
+{
+  "name": "algo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "heap.js",
+  "dependencies": {
+    "jasmine": "^2.6.0",
+    "jasmine-node": "^1.14.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test-heap": "jasmine-node --verbose ./__tests__/heap.spec.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
