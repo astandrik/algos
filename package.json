@@ -7,7 +7,10 @@
     "jasmine": "^2.6.0",
     "jasmine-node": "^1.14.5"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "jasmine-console-reporter": "^1.2.7",
+    "jsdoc": "^3.5.1"
+  },
   "scripts": {
     "test-heap": "jasmine-node --verbose ./__tests__/heap.spec.js",
     "test-pqueue": "jasmine-node --verbose ./__tests__/pqueue.spec.js",

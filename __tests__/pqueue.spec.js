@@ -1,6 +1,5 @@
 let PQueue = require('../priorityQueue');
 
-jasmine.getEnv().addReporter(new jasmine.ConsoleReporter(console.log));
 let helpers = require('./helpers');
 let randomArray = helpers.randomArray;
 let randomNumber = helpers.randomNumber;
@@ -36,7 +35,7 @@ describe("priority queue tests", () => {
       while (pqueue.length > 0) {
         heapSorted.push(pqueue.extractMax());
       }
-      expect(heapSorted).toEqual(arr);      
+      expect(heapSorted).toEqual(arr);
     }
   });
   it("increase keys test", () => {

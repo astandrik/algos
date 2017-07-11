@@ -1,5 +1,4 @@
 let Heap = require('../heap');
-jasmine.getEnv().addReporter(new jasmine.ConsoleReporter(console.log));
 let helpers = require('./helpers');
 let randomArray = helpers.randomArray;
 let randomNumber = helpers.randomNumber;

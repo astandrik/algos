@@ -13,6 +13,13 @@ module.exports.randomNumber = function randomNumber(min, max) {
   return Math.floor(Math.random() *(max-min +1)) + min;
 }
 
-module.exports.randomArray = function randomArray(len) {
+
+/**
+* Returns random integer Array
+* @param {Number} len - length of Array
+* @param {Number} [min] - min bound
+* @param {Number} [max] - max bound
+*/
+module.exports.randomArray = function randomArray(len, min = -1000, max = 1000) {
   return (new Array(len)).fill(1).map(x => module.exports.randomNumber(-1000,1000));
 }
